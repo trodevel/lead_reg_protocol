@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
+// $Revision: 9870 $ $Date:: 2018-10-18 #$ $Author: serge $
 
 #include "csv_response_encoder.h"       // self
 
@@ -56,8 +56,7 @@ std::ostream & CsvResponseEncoder::write( std::ostream & os, const Lead & r )
             os,
             static_cast<unsigned>( r.gender ),
             utils::nonascii_hex_codec::encode( r.name ),
-            utils::nonascii_hex_codec::encode( r.first_name ),
-            utils::nonascii_hex_codec::encode( r.phone ) );
+            utils::nonascii_hex_codec::encode( r.first_name ) );
 
     basic_objects::CsvHelper::write( os, r.email );
 

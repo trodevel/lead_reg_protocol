@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
+// $Revision: 9869 $ $Date:: 2018-10-18 #$ $Author: serge $
 
 #ifndef LIB_LEAD_REG_PROTOCOL_LEAD_REG_PROTOCOL_H
 #define LIB_LEAD_REG_PROTOCOL_LEAD_REG_PROTOCOL_H
@@ -52,9 +52,9 @@ struct Lead
     gender_e                gender;
     std::string             name;
     std::string             first_name;
-    basic_objects::Date     birthday;
-    std::string             phone;
     basic_objects::Email    email;
+    std::string             phone;
+    basic_objects::Date     birthday;
 };
 
 struct RegisterLeadRequest: public Request
