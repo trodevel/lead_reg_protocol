@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9873 $ $Date:: 2018-10-18 #$ $Author: serge $
+// $Revision: 9912 $ $Date:: 2018-10-22 #$ $Author: serge $
 
 namespace lead_reg_protocol;
 
@@ -59,7 +59,7 @@ protected static function parse_csv_array( $csv_arr )
         return $func( $csv_arr[0] );
     }
 
-    return NULL;
+    return \generic_protocol\ResponseParser::parse_csv_array( $csv_arr );
 }
 
 }

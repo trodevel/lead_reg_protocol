@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9870 $ $Date:: 2018-10-18 #$ $Author: serge $
+// $Revision: 9911 $ $Date:: 2018-10-22 #$ $Author: serge $
 
 #include "csv_response_encoder.h"       // self
 
@@ -71,7 +71,7 @@ std::ostream & CsvResponseEncoder::write( std::ostream & os, const Lead & r )
 
 std::string CsvResponseEncoder::to_csv( const RegisterLeadResponse & r )
 {
-    return utils::CsvHelper::to_csv( "RegisterLeadResponse" );
+    return utils::CsvHelper::to_csv( "lead_reg/RegisterLeadResponse" );
 }
 
 

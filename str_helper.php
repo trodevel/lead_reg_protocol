@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9874 $ $Date:: 2018-10-18 #$ $Author: serge $
+// $Revision: 9910 $ $Date:: 2018-10-22 #$ $Author: serge $
 
 namespace lead_reg_protocol;
 
@@ -58,7 +58,7 @@ function to_html( $obj )
         return $func( $obj );
     }
 
-    return NULL;
+    return \generic_protocol\to_html( $obj );
 }
 
 ?>
