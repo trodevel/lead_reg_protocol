@@ -19,10 +19,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
+// $Revision: 9917 $ $Date:: 2018-10-23 #$ $Author: serge $
 
 #include <string>
-#include <sstream>
+#include <sstream>              // std::ostringstream
 
 #include "enums.h"              // request_type_e
 #include "lead_reg_protocol.h"  // JobInfo::type_e, OpenJobStatus::state_e
@@ -35,7 +35,9 @@ class StrHelper
 {
 public:
     static const std::string & to_string( const request_type_e l );
+    static const std::string & to_string( const gender_e l );
 
+    static std::ostream & write( std::ostream & os, const Lead & r );
 
     template<class T>
     static std::string to_string( const T & l )

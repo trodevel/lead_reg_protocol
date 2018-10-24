@@ -19,12 +19,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
+// $Revision: 9919 $ $Date:: 2018-10-23 #$ $Author: serge $
 
 #ifndef LIB_LEAD_REG_PROTOCOL_CSV_RESPONSE_ENCODER_H
 #define LIB_LEAD_REG_PROTOCOL_CSV_RESPONSE_ENCODER_H
 
-#include "lead_reg_protocol.h"        // ClosedJobStatus, ...
+#include "lead_reg_protocol.h"      // RegisterLeadResponse, ...
 #include <sstream>                  // std::ostream
 
 NAMESPACE_LEAD_REG_PROTOCOL_START

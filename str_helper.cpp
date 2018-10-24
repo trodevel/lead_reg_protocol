@@ -19,19 +19,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
+// $Revision: 9917 $ $Date:: 2018-10-23 #$ $Author: serge $
 
 #include "str_helper.h"             // self
 
-#include <sstream>                  // std::ostringstream
-#include <iomanip>                  // std::setfill
 #include <map>
 
-#include "../lang_tools/str_helper.h"   // to_string for lang_e
-#include "../utils/to_string_t.h"       // to_string()
-
-
-#include "lead_reg_protocol.h"        // SayRequest
+#include "basic_objects/str_helper.h"   // to_string_YYYYMMDD()
 
 NAMESPACE_LEAD_REG_PROTOCOL_START
 
@@ -56,6 +50,36 @@ const std::string & StrHelper::to_string( const request_type_e s )
 
     return it->second;
 }
+
+const std::string & StrHelper::to_string( const gender_e s )
+{
+    typedef gender_e Type;
+    static const std::map< Type, std::string > m =
+    {
+        { Type:: TUPLE_VAL_STR( UNDEF ) },
+        { Type:: TUPLE_VAL_STR( MALE ) },
+        { Type:: TUPLE_VAL_STR( FEMALE ) },
+    };
+
+    auto it = m.find( s );
+
+    static const std::string undef( "undef" );
+
+    if( it == m.end() )
+        return undef;
+
+    return it->second;
+}
+
+std::ostream & StrHelper::write( std::ostream & os, const Lead & r )
+{
+    os << to_string( r.gender ) << " " << r.first_name << " " << r.name << " "
+            << r.email.email << " " << r.phone << " " << basic_objects::StrHelper::to_string_YYYYMMDD( r.birthday );
+
+    return os;
+}
+
+
 
 NAMESPACE_LEAD_REG_PROTOCOL_END
 
