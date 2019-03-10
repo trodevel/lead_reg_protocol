@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9911 $ $Date:: 2018-10-22 #$ $Author: serge $
+// $Revision: 10620 $ $Date:: 2019-03-10 #$ $Author: serge $
 
 #include "csv_response_encoder.h"       // self
 
@@ -27,7 +27,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 #include "utils/nonascii_hex_codec.h"   // nonascii_hex_codec
 #include "utils/csv_helper.h"           // CsvHelper
-#include "utils/assert.h"               // ASSERT
+#include "utils/utils_assert.h"               // ASSERT
 
 #include "generic_protocol/csv_helper.h"    // generic_protocol::CsvHelper::to_csv()
 #include "basic_objects/csv_helper.h"       // basic_objects::CsvHelper::write()
