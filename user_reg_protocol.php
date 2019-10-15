@@ -21,9 +21,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9884 $ $Date:: 2018-10-18 #$ $Author: serge $
+// $Revision: 12186 $ $Date:: 2019-10-15 #$ $Author: serge $
 
-namespace lead_reg_protocol;
+namespace user_reg_protocol;
 
 require_once __DIR__.'/../basic_objects/basic_objects.php';         // \basic_objects\TimeWindow, \basic_objects\Weekdays
 require_once __DIR__.'/../generic_protocol/generic_protocol.php';
@@ -92,7 +92,7 @@ class RegisterLeadRequest extends Request
     public function to_generic_request()
     {
         $res = array(
-                "CMD"           => "lead_reg/RegisterLeadRequest" );
+                "CMD"           => "user_reg/RegisterLeadRequest" );
 
         return \generic_protocol\assemble_request( $res ) .
             $this->lead->to_generic_request() .

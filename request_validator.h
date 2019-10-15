@@ -19,11 +19,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
+// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
 
-#include "lead_reg_protocol.h"    // Request...
+#include "user_reg_protocol.h"    // Request...
 
-NAMESPACE_LEAD_REG_PROTOCOL_START
+namespace user_reg_protocol {
 
 class RequestValidator
 {
@@ -32,5 +32,5 @@ public:
     static bool validate( const RegisterLeadRequest & r );
 };
 
-NAMESPACE_LEAD_REG_PROTOCOL_END
+} // namespace user_reg_protocol
 

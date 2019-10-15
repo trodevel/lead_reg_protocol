@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9917 $ $Date:: 2018-10-23 #$ $Author: serge $
+// $Revision: 12177 $ $Date:: 2019-10-15 #$ $Author: serge $
 
 #include "str_helper.h"             // self
 
@@ -27,7 +27,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 #include "basic_objects/str_helper.h"   // to_string_YYYYMMDD()
 
-NAMESPACE_LEAD_REG_PROTOCOL_START
+namespace user_reg_protocol {
 
 #define TUPLE_VAL_STR(_x_)  _x_,#_x_
 #define TUPLE_STR_VAL(_x_)  #_x_,_x_
@@ -81,5 +81,5 @@ std::ostream & StrHelper::write( std::ostream & os, const Lead & r )
 
 
 
-NAMESPACE_LEAD_REG_PROTOCOL_END
+} // namespace user_reg_protocol
 

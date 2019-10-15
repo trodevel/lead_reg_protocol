@@ -21,11 +21,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9910 $ $Date:: 2018-10-22 #$ $Author: serge $
+// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
 
-namespace lead_reg_protocol;
+namespace user_reg_protocol;
 
-require_once 'lead_reg_protocol.php';
+require_once 'user_reg_protocol.php';
 require_once __DIR__.'/../generic_protocol/str_helper.php';
 require_once __DIR__.'/../basic_objects/str_helper.php';        // to_string_Email
 
@@ -46,15 +46,15 @@ function to_html_RegisterLeadResponse( & $obj )
 function to_html( $obj )
 {
     $handler_map = array(
-        'lead_reg_protocol\RegisterLeadRequest'             => 'to_html_not_impl',
-        'lead_reg_protocol\RegisterLeadResponse'            => 'to_html_RegisterLeadResponse',
+        'user_reg_protocol\RegisterLeadRequest'             => 'to_html_not_impl',
+        'user_reg_protocol\RegisterLeadResponse'            => 'to_html_RegisterLeadResponse',
     );
 
     $type = get_class ( $obj );
 
     if( array_key_exists( $type, $handler_map ) )
     {
-        $func = '\\lead_reg_protocol\\' . $handler_map[ $type ];
+        $func = '\\user_reg_protocol\\' . $handler_map[ $type ];
         return $func( $obj );
     }
 

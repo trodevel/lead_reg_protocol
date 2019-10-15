@@ -1,8 +1,8 @@
 <?php
 
-// $Revision: 9878 $ $Date:: 2018-10-18 #$ $Author: serge $
+// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
 
-require_once '../lead_reg_protocol.php';
+require_once '../user_reg_protocol.php';
 require_once '../response_parser.php';
 require_once '../str_helper.php';
 
@@ -10,7 +10,7 @@ require_once '../str_helper.php';
     $resp  =
     'AddContactPhoneResponse;123;';
 
-    $parsed = lead_reg_protocol\ResponseParser::parse( $resp );
+    $parsed = user_reg_protocol\ResponseParser::parse( $resp );
 
     $str = "";
 
@@ -20,7 +20,7 @@ require_once '../str_helper.php';
     }
     else
     {
-        $str = \lead_reg_protocol\to_html( $parsed );
+        $str = \user_reg_protocol\to_html( $parsed );
     }
 
     echo "parsed wrong: " . $str . "\n";

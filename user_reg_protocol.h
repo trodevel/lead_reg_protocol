@@ -19,17 +19,15 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9869 $ $Date:: 2018-10-18 #$ $Author: serge $
+// $Revision: 12180 $ $Date:: 2019-10-15 #$ $Author: serge $
 
-#ifndef LIB_LEAD_REG_PROTOCOL_LEAD_REG_PROTOCOL_H
-#define LIB_LEAD_REG_PROTOCOL_LEAD_REG_PROTOCOL_H
+#ifndef LIB_USER_REG_PROTOCOL__LEAD_REG_PROTOCOL_H
+#define LIB_USER_REG_PROTOCOL__LEAD_REG_PROTOCOL_H
 
 #include "generic_protocol/generic_protocol.h"  // generic_protocol::Request
 #include "basic_objects/basic_objects.h"        // basic_objects::Email
 
-#include "namespace_lib.h"      // NAMESPACE_LEAD_REG_PROTOCOL_START
-
-NAMESPACE_LEAD_REG_PROTOCOL_START
+namespace user_reg_protocol {
 
 struct Request: public generic_protocol::Request
 {
@@ -66,6 +64,6 @@ struct RegisterLeadResponse: public BackwardMessage
 {
 };
 
-NAMESPACE_LEAD_REG_PROTOCOL_END
+} // namespace user_reg_protocol
 
-#endif // LIB_LEAD_REG_PROTOCOL_LEAD_REG_PROTOCOL_H
+#endif // LIB_USER_REG_PROTOCOL__LEAD_REG_PROTOCOL_H

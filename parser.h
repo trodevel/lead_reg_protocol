@@ -19,16 +19,16 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
+// $Revision: 12179 $ $Date:: 2019-10-15 #$ $Author: serge $
 
-#ifndef LIB_LEAD_REG_PROTOCOL_PARSER_H
-#define LIB_LEAD_REG_PROTOCOL_PARSER_H
+#ifndef LIB_USER_REG_PROTOCOL__PARSER_H
+#define LIB_USER_REG_PROTOCOL__PARSER_H
 
 #include "enums.h"              // request_type_e
 
 #include <string>
 
-NAMESPACE_LEAD_REG_PROTOCOL_START
+namespace user_reg_protocol {
 
 class Parser
 {
@@ -37,6 +37,6 @@ public:
     static request_type_e   to_request_type( const std::string & s );
 };
 
-NAMESPACE_LEAD_REG_PROTOCOL_END
+} // namespace user_reg_protocol
 
-#endif // LIB_LEAD_REG_PROTOCOL_PARSER_H
+#endif // LIB_USER_REG_PROTOCOL__PARSER_H
