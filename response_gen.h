@@ -19,14 +19,14 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
 
-#ifndef LIB_USER_REG_PROTOCOL__RESPONSE_GEN_H
-#define LIB_USER_REG_PROTOCOL__RESPONSE_GEN_H
+#ifndef LIB_LEAD_REG_PROTOCOL_RESPONSE_GEN_H
+#define LIB_LEAD_REG_PROTOCOL_RESPONSE_GEN_H
 
-#include "user_reg_protocol.h"        // SayResponse
+#include "lead_reg_protocol.h"        // SayResponse
 
-namespace user_reg_protocol {
+NAMESPACE_LEAD_REG_PROTOCOL_START
 
 inline RegisterLeadResponse * create_RegisterLeadResponse()
 {
@@ -35,6 +35,6 @@ inline RegisterLeadResponse * create_RegisterLeadResponse()
     return res;
 }
 
-} // namespace user_reg_protocol
+NAMESPACE_LEAD_REG_PROTOCOL_END
 
-#endif // LIB_USER_REG_PROTOCOL__RESPONSE_GEN_H
+#endif // LIB_LEAD_REG_PROTOCOL_RESPONSE_GEN_H

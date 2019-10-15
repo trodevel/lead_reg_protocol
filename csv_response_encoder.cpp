@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12186 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 10620 $ $Date:: 2019-03-10 #$ $Author: serge $
 
 #include "csv_response_encoder.h"       // self
 
@@ -34,9 +34,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 #include "str_helper.h"
 
-#define MODULENAME      "user_reg_protocol::CsvResponseEncoder"
+#define MODULENAME      "lead_reg_protocol::CsvResponseEncoder"
 
-namespace user_reg_protocol {
+NAMESPACE_LEAD_REG_PROTOCOL_START
 
 std::string CsvResponseEncoder::to_csv( const generic_protocol::BackwardMessage & r )
 {
@@ -71,8 +71,8 @@ std::ostream & CsvResponseEncoder::write( std::ostream & os, const Lead & r )
 
 std::string CsvResponseEncoder::to_csv( const RegisterLeadResponse & r )
 {
-    return utils::CsvHelper::to_csv( "user_reg/RegisterLeadResponse" );
+    return utils::CsvHelper::to_csv( "lead_reg/RegisterLeadResponse" );
 }
 
 
-} // namespace user_reg_protocol
+NAMESPACE_LEAD_REG_PROTOCOL_END

@@ -19,16 +19,18 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
 
 #include <stdexcept>            // std::runtime_error
 
 #include "generic_request/request.h"    // generic_request::Request
 #include "basic_parser/malformed_request.h"      // MalformedRequest
 #include "enums.h"                      // request_type_e
-#include "user_reg_protocol.h"          // Request...
+#include "lead_reg_protocol.h"          // Request...
 
-namespace user_reg_protocol {
+#include "namespace_lib.h"      // NAMESPACE_LEAD_REG_PROTOCOL_START
+
+NAMESPACE_LEAD_REG_PROTOCOL_START
 
 class RequestParser
 {
@@ -48,5 +50,5 @@ private:
     static ForwardMessage *             to_RegisterLeadRequest( const generic_request::Request & r );
 };
 
-} // namespace user_reg_protocol
+NAMESPACE_LEAD_REG_PROTOCOL_END
 

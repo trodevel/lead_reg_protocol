@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12177 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
 
 
 #include "request_validator.h"      // self
@@ -29,7 +29,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "generic_protocol/request_validator.h" // generic_protocol::RequestValidator::validate
 #include "basic_objects/validator.h"            // basic_objects::Validator::validate
 
-namespace user_reg_protocol {
+NAMESPACE_LEAD_REG_PROTOCOL_START
 
 bool RequestValidator::validate( const Lead & r )
 {
@@ -52,4 +52,4 @@ bool RequestValidator::validate( const RegisterLeadRequest & r )
     return true;
 }
 
-} // namespace user_reg_protocol
+NAMESPACE_LEAD_REG_PROTOCOL_END

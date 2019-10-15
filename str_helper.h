@@ -19,15 +19,17 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 9917 $ $Date:: 2018-10-23 #$ $Author: serge $
 
 #include <string>
 #include <sstream>              // std::ostringstream
 
 #include "enums.h"              // request_type_e
-#include "user_reg_protocol.h"  // JobInfo::type_e, OpenJobStatus::state_e
+#include "lead_reg_protocol.h"  // JobInfo::type_e, OpenJobStatus::state_e
 
-namespace user_reg_protocol {
+#include "namespace_lib.h"      // NAMESPACE_LEAD_REG_PROTOCOL_START
+
+NAMESPACE_LEAD_REG_PROTOCOL_START
 
 class StrHelper
 {
@@ -48,4 +50,4 @@ public:
     }
 };
 
-} // namespace user_reg_protocol
+NAMESPACE_LEAD_REG_PROTOCOL_END
