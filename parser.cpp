@@ -19,14 +19,14 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
+// $Revision: 12186 $ $Date:: 2019-10-15 #$ $Author: serge $
 
 #include "parser.h"                 // self
 
 #include <map>
 #include <stdexcept>                // std::invalid_argument
 
-NAMESPACE_LEAD_REG_PROTOCOL_START
+namespace user_reg_protocol {
 
 #define TUPLE_VAL_STR(_x_)  _x_,#_x_
 #define TUPLE_STR_VAL(_x_)  #_x_,_x_
@@ -43,7 +43,7 @@ request_type_e Parser::to_request_type( const std::string & s )
     typedef std::map< std::string, request_type_e > Map;
     static const Map m =
     {
-        make_inverse_pair( request_type_e:: TUPLE_VAL_STR_PREF( RegisterLeadRequest, "lead_reg/" ) ),
+        make_inverse_pair( request_type_e:: TUPLE_VAL_STR_PREF( RegisterLeadRequest, "user_reg/" ) ),
     };
 
     auto it = m.find( s );
@@ -54,4 +54,4 @@ request_type_e Parser::to_request_type( const std::string & s )
     return it->second;
 }
 
-NAMESPACE_LEAD_REG_PROTOCOL_END
+} // namespace user_reg_protocol

@@ -19,14 +19,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9867 $ $Date:: 2018-10-17 #$ $Author: serge $
+// $Revision: 12178 $ $Date:: 2019-10-15 #$ $Author: serge $
 
 #ifndef LEAD_REG_PROTOCOL_ENUMS_H
 #define LEAD_REG_PROTOCOL_ENUMS_H
 
-#include "namespace_lib.h"      // NAMESPACE_LEAD_REG_PROTOCOL_START
-
-NAMESPACE_LEAD_REG_PROTOCOL_START
+namespace user_reg_protocol {
 
 enum class request_type_e
 {
@@ -34,6 +32,6 @@ enum class request_type_e
     RegisterLeadRequest,
 };
 
-NAMESPACE_LEAD_REG_PROTOCOL_END
+} // namespace user_reg_protocol
 
 #endif // LEAD_REG_PROTOCOL_ENUMS_H

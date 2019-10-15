@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9868 $ $Date:: 2018-10-17 #$ $Author: serge $
+// $Revision: 12177 $ $Date:: 2019-10-15 #$ $Author: serge $
 
 #include "request_parser.h"         // self
 
@@ -30,7 +30,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "generic_protocol/request_parser.h" // generic_protocol::RequestParser::to_request()
 #include "request_validator.h"      // RequestValidator
 
-NAMESPACE_LEAD_REG_PROTOCOL_START
+namespace user_reg_protocol {
 
 using basic_parser::get_value_or_throw;
 using basic_parser::get_value_or_throw_uint32;
@@ -95,4 +95,4 @@ RequestParser::ForwardMessage * RequestParser::to_RegisterLeadRequest( const gen
     return res;
 }
 
-NAMESPACE_LEAD_REG_PROTOCOL_END
+} // namespace user_reg_protocol
