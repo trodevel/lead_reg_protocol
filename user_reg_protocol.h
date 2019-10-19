@@ -1,6 +1,6 @@
 /*
 
-Lead/Registration Protocol messages.
+User/Registration Protocol messages.
 
 Copyright (C) 2018 Sergey Kolevatov
 
@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12180 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12191 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 #ifndef LIB_USER_REG_PROTOCOL__LEAD_REG_PROTOCOL_H
 #define LIB_USER_REG_PROTOCOL__LEAD_REG_PROTOCOL_H
@@ -45,7 +45,7 @@ enum class gender_e
     FEMALE  = 2,
 };
 
-struct Lead
+struct User
 {
     gender_e                gender;
     std::string             name;
@@ -55,12 +55,21 @@ struct Lead
     basic_objects::Date     birthday;
 };
 
-struct RegisterLeadRequest: public Request
+struct RegisterUserRequest: public Request
 {
-    Lead            lead;
+    User            lead;
 };
 
-struct RegisterLeadResponse: public BackwardMessage
+struct RegisterUserResponse: public BackwardMessage
+{
+};
+
+struct ConfirmRegistrationRequest: public Request
+{
+    std::string     registration_key;
+};
+
+struct ConfirmRegistrationResponse: public BackwardMessage
 {
 };
 

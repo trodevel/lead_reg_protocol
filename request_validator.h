@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12192 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 #include "user_reg_protocol.h"    // Request...
 
@@ -28,8 +28,9 @@ namespace user_reg_protocol {
 class RequestValidator
 {
 public:
-    static bool validate( const Lead & r );
-    static bool validate( const RegisterLeadRequest & r );
+    static bool validate( const User & r );
+    static bool validate( const RegisterUserRequest & r );
+    static bool validate( const ConfirmRegistrationRequest & r );
 };
 
 } // namespace user_reg_protocol

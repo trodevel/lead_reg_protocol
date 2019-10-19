@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12186 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12187 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 #include "csv_response_encoder.h"       // self
 
@@ -40,9 +40,9 @@ namespace user_reg_protocol {
 
 std::string CsvResponseEncoder::to_csv( const generic_protocol::BackwardMessage & r )
 {
-    if( typeid( r ) == typeid( RegisterLeadResponse ) )
+    if( typeid( r ) == typeid( RegisterUserResponse ) )
     {
-        return to_csv( static_cast<const RegisterLeadResponse&>( r ) );
+        return to_csv( static_cast<const RegisterUserResponse&>( r ) );
     }
     else
     {
@@ -50,7 +50,7 @@ std::string CsvResponseEncoder::to_csv( const generic_protocol::BackwardMessage 
     }
 }
 
-std::ostream & CsvResponseEncoder::write( std::ostream & os, const Lead & r )
+std::ostream & CsvResponseEncoder::write( std::ostream & os, const User & r )
 {
     utils::CsvHelper::write(
             os,
@@ -69,9 +69,9 @@ std::ostream & CsvResponseEncoder::write( std::ostream & os, const Lead & r )
     return os;
 }
 
-std::string CsvResponseEncoder::to_csv( const RegisterLeadResponse & r )
+std::string CsvResponseEncoder::to_csv( const RegisterUserResponse & r )
 {
-    return utils::CsvHelper::to_csv( "user_reg/RegisterLeadResponse" );
+    return utils::CsvHelper::to_csv( "user_reg/RegisterUserResponse" );
 }
 
 

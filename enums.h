@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12178 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12191 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 #ifndef LEAD_REG_PROTOCOL_ENUMS_H
 #define LEAD_REG_PROTOCOL_ENUMS_H
@@ -29,7 +29,8 @@ namespace user_reg_protocol {
 enum class request_type_e
 {
     UNDEF,
-    RegisterLeadRequest,
+    RegisterUserRequest,
+    ConfirmRegistrationRequest,
 };
 
 } // namespace user_reg_protocol

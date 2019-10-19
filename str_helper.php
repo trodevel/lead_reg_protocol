@@ -2,7 +2,7 @@
 
 /*
 
-Lead/Registration Protocol messages.
+User/Registration Protocol messages.
 
 Copyright (C) 2018 Sergey Kolevatov
 
@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12194 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 namespace user_reg_protocol;
 
@@ -34,7 +34,14 @@ function to_html_not_impl( & $obj )
     return get_html_table_header_elems( array( 'not implemented yet' ) );
 }
 
-function to_html_RegisterLeadResponse( & $obj )
+function to_html_RegisterUserResponse( & $obj )
+{
+    return get_html_table( NULL, NULL, NULL, 'border="1" cellspacing="1" cellpadding="3"',
+        get_html_table_row_header( array( 'RESULT' ) ) .
+        get_html_table_row_data( array( 'OK' ) ) );
+}
+
+function to_html_ConfirmRegistrationResponse( & $obj )
 {
     return get_html_table( NULL, NULL, NULL, 'border="1" cellspacing="1" cellpadding="3"',
         get_html_table_row_header( array( 'RESULT' ) ) .
@@ -46,8 +53,9 @@ function to_html_RegisterLeadResponse( & $obj )
 function to_html( $obj )
 {
     $handler_map = array(
-        'user_reg_protocol\RegisterLeadRequest'             => 'to_html_not_impl',
-        'user_reg_protocol\RegisterLeadResponse'            => 'to_html_RegisterLeadResponse',
+        'user_reg_protocol\RegisterUserRequest'             => 'to_html_not_impl',
+        'user_reg_protocol\RegisterUserResponse'            => 'to_html_RegisterUserResponse',
+        'user_reg_protocol\ConfirmRegistrationResponse'     => 'to_html_ConfirmRegistrationResponse',
     );
 
     $type = get_class ( $obj );

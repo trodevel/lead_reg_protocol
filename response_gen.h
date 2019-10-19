@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12187 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 #ifndef LIB_USER_REG_PROTOCOL__RESPONSE_GEN_H
 #define LIB_USER_REG_PROTOCOL__RESPONSE_GEN_H
@@ -28,9 +28,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 namespace user_reg_protocol {
 
-inline RegisterLeadResponse * create_RegisterLeadResponse()
+inline RegisterUserResponse * create_RegisterUserResponse()
 {
-    auto * res = new RegisterLeadResponse;
+    auto * res = new RegisterUserResponse;
 
     return res;
 }

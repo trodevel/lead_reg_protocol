@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12177 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12187 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 #include "str_helper.h"             // self
 
@@ -38,7 +38,7 @@ const std::string & StrHelper::to_string( const request_type_e s )
     static const std::map< Type, std::string > m =
     {
         { Type:: TUPLE_VAL_STR( UNDEF ) },
-        { Type:: TUPLE_VAL_STR( RegisterLeadRequest ) },
+        { Type:: TUPLE_VAL_STR( RegisterUserRequest ) },
     };
 
     auto it = m.find( s );
@@ -71,7 +71,7 @@ const std::string & StrHelper::to_string( const gender_e s )
     return it->second;
 }
 
-std::ostream & StrHelper::write( std::ostream & os, const Lead & r )
+std::ostream & StrHelper::write( std::ostream & os, const User & r )
 {
     os << to_string( r.gender ) << " " << r.first_name << " " << r.name << " "
             << r.email.email << " " << r.phone << " " << basic_objects::StrHelper::to_string_YYYYMMDD( r.birthday );

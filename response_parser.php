@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12186 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12194 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 namespace user_reg_protocol;
 
@@ -30,11 +30,20 @@ require_once __DIR__.'/../generic_protocol/response_parser.php';    // generic_p
 require_once __DIR__.'/../basic_objects/parser.php';                // \basic_objects\parse_Email
 require_once 'user_reg_protocol.php';
 
-function parse_RegisterLeadResponse( & $resp )
+function parse_RegisterUserResponse( & $resp )
 {
-    // RegisterLeadResponse;
+    // RegisterUserResponse;
 
-    $res = new RegisterLeadResponse;
+    $res = new RegisterUserResponse;
+
+    return $res;
+}
+
+function parse_ConfirmRegistrationResponse( & $resp )
+{
+    // ConfirmRegistrationResponse;
+
+    $res = new ConfirmRegistrationResponse;
 
     return $res;
 }
@@ -50,7 +59,8 @@ protected static function parse_csv_array( $csv_arr )
     $type = $csv_arr[0][0];
 
     $func_map = array(
-        'user_reg/RegisterLeadResponse'     => 'parse_RegisterLeadResponse',
+        'user_reg/RegisterUserResponse'         => 'parse_RegisterUserResponse',
+        'user_reg/ConfirmRegistrationResponse'  => 'parse_ConfirmRegistrationResponse',
         );
 
     if( array_key_exists( $type, $func_map ) )

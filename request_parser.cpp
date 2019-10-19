@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12177 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12192 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 #include "request_parser.h"         // self
 
@@ -39,14 +39,20 @@ generic_protocol::ForwardMessage* RequestParser::to_forward_message( const gener
 {
     auto type = RequestParser::detect_request_type( r );
 
+    typedef request_type_e KeyType;
     typedef RequestParser Type;
 
     typedef ForwardMessage* (*PPMF)( const generic_request::Request & r );
 
-    static const std::map<request_type_e, PPMF> funcs =
+#define HANDLER_MAP_ENTRY(_v)       { KeyType::_v,    & Type::to_##_v }
+
+    static const std::map<KeyType, PPMF> funcs =
     {
-        { request_type_e::RegisterLeadRequest,              & Type::to_RegisterLeadRequest },
+        HANDLER_MAP_ENTRY( RegisterUserRequest ),
+        HANDLER_MAP_ENTRY( ConfirmRegistrationRequest ),
     };
+
+#undef HANDLER_MAP_ENTRY
 
     auto it = funcs.find( type );
 
@@ -66,7 +72,7 @@ request_type_e  RequestParser::detect_request_type( const generic_request::Reque
     return Parser::to_request_type( cmd );
 }
 
-void RequestParser::to_Lead( Lead & res, const generic_request::Request & r )
+void RequestParser::to_User( User & res, const generic_request::Request & r )
 {
     basic_objects::Parser::to_Date( & res.birthday, "BIRTHDAY", r );
     basic_objects::Parser::to_Email( & res.email, "EMAIL", r );
@@ -82,13 +88,24 @@ void RequestParser::to_Lead( Lead & res, const generic_request::Request & r )
     r.get_value( "PHONE",       res.phone );
 }
 
-RequestParser::ForwardMessage * RequestParser::to_RegisterLeadRequest( const generic_request::Request & r )
+RequestParser::ForwardMessage * RequestParser::to_RegisterUserRequest( const generic_request::Request & r )
 {
-    auto * res = new RegisterLeadRequest;
+    auto * res = new RegisterUserRequest;
 
-    to_Lead( res->lead, r );
+    to_User( res->lead, r );
 
     generic_protocol::RequestParser::to_request( res, r );
+
+    RequestValidator::validate( * res );
+
+    return res;
+}
+
+RequestParser::ForwardMessage * RequestParser::to_ConfirmRegistrationRequest( const generic_request::Request & r )
+{
+    auto * res = new ConfirmRegistrationRequest;
+
+    get_value_or_throw( res->registration_key, "REGISTRATION_KEY", r );
 
     RequestValidator::validate( * res );
 

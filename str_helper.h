@@ -19,13 +19,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12188 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 #include <string>
 #include <sstream>              // std::ostringstream
 
 #include "enums.h"              // request_type_e
-#include "user_reg_protocol.h"  // JobInfo::type_e, OpenJobStatus::state_e
+#include "user_reg_protocol.h"  // User
 
 namespace user_reg_protocol {
 
@@ -35,7 +35,7 @@ public:
     static const std::string & to_string( const request_type_e l );
     static const std::string & to_string( const gender_e l );
 
-    static std::ostream & write( std::ostream & os, const Lead & r );
+    static std::ostream & write( std::ostream & os, const User & r );
 
     template<class T>
     static std::string to_string( const T & l )

@@ -2,7 +2,7 @@
 
 /*
 
-Lead/Registration Protocol messages.
+User/Registration Protocol messages.
 
 Copyright (C) 2018 Sergey Kolevatov
 
@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12186 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12193 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 namespace user_reg_protocol;
 
@@ -44,7 +44,7 @@ const gender_e_UNDEF   = 0;
 const gender_e_MALE    = 1;
 const gender_e_FEMALE  = 2;
 
-class Lead
+class User
 {
     public          $gender;            // gender, see gender_e_... constants
     public          $name;              // name
@@ -78,9 +78,9 @@ class Lead
 
 };
 
-class RegisterLeadRequest extends Request
+class RegisterUserRequest extends Request
 {
-    public          $lead;           // contact, see Lead
+    public          $lead;           // contact, see User
 
     function __construct( $session_id, $lead )
     {
@@ -92,7 +92,7 @@ class RegisterLeadRequest extends Request
     public function to_generic_request()
     {
         $res = array(
-                "CMD"           => "user_reg/RegisterLeadRequest" );
+                "CMD"           => "user_reg/RegisterUserRequest" );
 
         return \generic_protocol\assemble_request( $res ) .
             $this->lead->to_generic_request() .
@@ -100,7 +100,34 @@ class RegisterLeadRequest extends Request
     }
 };
 
-class RegisterLeadResponse extends Response
+class RegisterUserResponse extends Response
+{
+};
+
+class ConfirmRegistrationRequest extends Request
+{
+    public          $registration_key;      // string
+
+    function __construct( $session_id, $registration_key )
+    {
+        parent::__construct( $session_id );
+
+        $this->registration_key     = $registration_key;
+    }
+
+    public function to_generic_request()
+    {
+        $res = array(
+            "CMD"               => "user_reg/ConfirmRegistrationRequest",
+            "REGISTRATION_KEY"  => $this->registration_key
+        );
+
+        return \generic_protocol\assemble_request( $res ) .
+            parent::to_generic_request();
+    }
+};
+
+class ConfirmRegistrationResponse extends Response
 {
 };
 

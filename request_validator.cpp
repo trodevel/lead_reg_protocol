@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12177 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12196 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 
 #include "request_validator.h"      // self
@@ -31,7 +31,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 namespace user_reg_protocol {
 
-bool RequestValidator::validate( const Lead & r )
+bool RequestValidator::validate( const User & r )
 {
     if( r.gender < gender_e::UNDEF || r.gender > gender_e::FEMALE )
         throw RequestParser::MalformedRequest( "unsupported gender " + std::to_string( static_cast<int>( r.gender ) ) );
@@ -45,9 +45,17 @@ bool RequestValidator::validate( const Lead & r )
     return true;
 }
 
-bool RequestValidator::validate( const RegisterLeadRequest & r )
+bool RequestValidator::validate( const RegisterUserRequest & r )
 {
     validate( r.lead );
+
+    return true;
+}
+
+bool RequestValidator::validate( const ConfirmRegistrationRequest & r )
+{
+    if( r.registration_key.empty() )
+        throw RequestParser::MalformedRequest( "unsupported registration key " + r.registration_key );
 
     return true;
 }

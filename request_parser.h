@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12191 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 #include <stdexcept>            // std::runtime_error
 
@@ -44,8 +44,9 @@ private:
 
     static request_type_e   detect_request_type( const generic_request::Request & r );
 
-    static void                         to_Lead( Lead & res, const generic_request::Request & r );
-    static ForwardMessage *             to_RegisterLeadRequest( const generic_request::Request & r );
+    static void                         to_User( User & res, const generic_request::Request & r );
+    static ForwardMessage *             to_RegisterUserRequest( const generic_request::Request & r );
+    static ForwardMessage *             to_ConfirmRegistrationRequest( const generic_request::Request & r );
 };
 
 } // namespace user_reg_protocol

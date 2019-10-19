@@ -19,12 +19,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12181 $ $Date:: 2019-10-15 #$ $Author: serge $
+// $Revision: 12187 $ $Date:: 2019-10-18 #$ $Author: serge $
 
 #ifndef LIB_USER_REG_PROTOCOL__CSV_RESPONSE_ENCODER_H
 #define LIB_USER_REG_PROTOCOL__CSV_RESPONSE_ENCODER_H
 
-#include "user_reg_protocol.h"      // RegisterLeadResponse, ...
+#include "user_reg_protocol.h"      // RegisterUserResponse, ...
 #include <sstream>                  // std::ostream
 
 namespace user_reg_protocol {
@@ -32,9 +32,9 @@ namespace user_reg_protocol {
 class CsvResponseEncoder
 {
 public:
-    static std::ostream & write( std::ostream & os, const Lead & r );
+    static std::ostream & write( std::ostream & os, const User & r );
     static std::string to_csv( const generic_protocol::BackwardMessage & r );
-    static std::string to_csv( const RegisterLeadResponse & r );
+    static std::string to_csv( const RegisterUserResponse & r );
 };
 
 } // namespace user_reg_protocol
