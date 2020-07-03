@@ -1,64 +1,126 @@
 <?php
 
-/*
-
-User/Registration Protocol messages.
-
-Copyright (C) 2018 Sergey Kolevatov
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
-
-*/
-
-// $Revision: 12194 $ $Date:: 2019-10-18 #$ $Author: serge $
-
 namespace user_reg_protocol;
 
-require_once 'user_reg_protocol.php';
-require_once __DIR__.'/../generic_protocol/str_helper.php';
-require_once __DIR__.'/../basic_objects/str_helper.php';        // to_string_Email
 
-function to_html_not_impl( & $obj )
+// includes
+require_once __DIR__.'/../basic_objects/str_helper.php';
+require_once __DIR__.'/../basic_parser/str_helper.php';
+
+// enums
+
+function to_string__gender_e( $r )
 {
-    return get_html_table_header_elems( array( 'not implemented yet' ) );
-}
-
-function to_html_RegisterUserResponse( & $obj )
-{
-    return get_html_table( NULL, NULL, NULL, 'border="1" cellspacing="1" cellpadding="3"',
-        get_html_table_row_header( array( 'RESULT' ) ) .
-        get_html_table_row_data( array( 'OK' ) ) );
-}
-
-function to_html_ConfirmRegistrationResponse( & $obj )
-{
-    return get_html_table( NULL, NULL, NULL, 'border="1" cellspacing="1" cellpadding="3"',
-        get_html_table_row_header( array( 'RESULT' ) ) .
-        get_html_table_row_data( array( 'OK' ) ) );
-}
-
-// *********************************************************
-
-function to_html( $obj )
-{
-    $handler_map = array(
-        'user_reg_protocol\RegisterUserRequest'             => 'to_html_not_impl',
-        'user_reg_protocol\RegisterUserResponse'            => 'to_html_RegisterUserResponse',
-        'user_reg_protocol\ConfirmRegistrationResponse'     => 'to_html_ConfirmRegistrationResponse',
+    $map = array
+    (
+        gender_e__UNDEF => 'UNDEF',
+        gender_e__MALE => 'MALE',
+        gender_e__FEMALE => 'FEMALE',
     );
 
-    $type = get_class ( $obj );
+    if( array_key_exists( $r, $map ) )
+    {
+        return $map[ $r ];
+    }
+
+    return '?';
+}
+
+// objects
+
+function to_string__User( & $r )
+{
+    $res = "";    $res .= "(";
+
+    $res .= " gender=" . to_string__gender_e( $r->gender );
+    $res .= " name=" . \basic_parser\to_string__string( $r->name );
+    $res .= " first_name=" . \basic_parser\to_string__string( $r->first_name );
+    $res .= " email=" . \basic_objects\to_string__Email( $r->email );
+    $res .= " phone=" . \basic_parser\to_string__string( $r->phone );
+    $res .= " birthday=" . \basic_objects\to_string__Date( $r->birthday );
+
+    $res .= ")";
+
+    return $res;
+}
+
+// base messages
+
+function to_string__Request( & $r )
+{
+    $res = "";    $res .= "(";
+
+
+    $res .= ")";
+
+    return $res;
+}
+
+function to_string__BackwardMessage( & $r )
+{
+    $res = "";    $res .= "(";
+
+
+    $res .= ")";
+
+    return $res;
+}
+
+// messages
+
+function to_string__RegisterUserRequest( & $r )
+{
+    $res = "";    // base class
+    $res .= to_string__Request( $r );
+
+    $res .= " lead=" . to_string__User( $r->lead );
+
+    return $res;
+}
+
+function to_string__RegisterUserResponse( & $r )
+{
+    $res = "";    // base class
+    $res .= to_string__BackwardMessage( $r );
+
+
+    return $res;
+}
+
+function to_string__ConfirmRegistrationRequest( & $r )
+{
+    $res = "";    // base class
+    $res .= to_string__Request( $r );
+
+    $res .= " registration_key=" . \basic_parser\to_string__string( $r->registration_key );
+
+    return $res;
+}
+
+function to_string__ConfirmRegistrationResponse( & $r )
+{
+    $res = "";    // base class
+    $res .= to_string__BackwardMessage( $r );
+
+
+    return $res;
+}
+
+// generic
+
+function to_string( $obj )
+{
+    $handler_map = array(
+        // objects
+        'user_reg_protocol\User'         => 'to_string__User',
+        // messages
+        'user_reg_protocol\RegisterUserRequest'         => 'to_string__RegisterUserRequest',
+        'user_reg_protocol\RegisterUserResponse'         => 'to_string__RegisterUserResponse',
+        'user_reg_protocol\ConfirmRegistrationRequest'         => 'to_string__ConfirmRegistrationRequest',
+        'user_reg_protocol\ConfirmRegistrationResponse'         => 'to_string__ConfirmRegistrationResponse',
+    );
+
+    $type = get_class( $obj );
 
     if( array_key_exists( $type, $handler_map ) )
     {
@@ -66,7 +128,10 @@ function to_html( $obj )
         return $func( $obj );
     }
 
-    return \generic_protocol\to_html( $obj );
+    return NULL;
 }
+
+# namespace_end user_reg_protocol
+
 
 ?>

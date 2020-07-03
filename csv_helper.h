@@ -1,5 +1,5 @@
-#ifndef APG_USER_REG__STR_HELPER_H
-#define APG_USER_REG__STR_HELPER_H
+#ifndef APG_USER_REG__CSV_HELPER_H
+#define APG_USER_REG__CSV_HELPER_H
 
 // system includes
 #include <sstream>
@@ -10,7 +10,7 @@
 namespace user_reg_protocol
 {
 
-namespace str_helper
+namespace csv_helper
 {
 
 // enums
@@ -30,7 +30,7 @@ std::ostream & write( std::ostream & os, const ConfirmRegistrationRequest & r );
 std::ostream & write( std::ostream & os, const ConfirmRegistrationResponse & r );
 
 template<class T>
-std::string to_string( const T & l )
+std::string to_csv( const T & l )
 {
     std::ostringstream os;
 
@@ -39,8 +39,11 @@ std::string to_string( const T & l )
     return os.str();
 }
 
-} // namespace str_helper
+// generic
+std::ostream & write( std::ostream & os, const basic_parser::Object & r );
+
+} // namespace csv_helper
 
 } // namespace user_reg_protocol
 
-#endif // APG_USER_REG__STR_HELPER_H
+#endif // APG_USER_REG__CSV_HELPER_H

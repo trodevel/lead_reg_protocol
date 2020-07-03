@@ -1,0 +1,91 @@
+############################################################
+#
+# User/Registration Protocol messages.
+#
+# Copyright (C) 2018 Sergey Kolevatov
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+
+# $Revision: 13344 $ $Date:: 2020-07-02 #$ $Author: serge $
+
+############################################################
+
+protocol user_reg
+
+############################################################
+
+use basic_objects
+
+############################################################
+
+base_msg Request
+
+base_msg_end
+
+############################################################
+
+#base_msg BackwardMessage: generic_protocol::BackwardMessage
+base_msg BackwardMessage
+
+base_msg_end
+
+############################################################
+
+enum gender_e
+
+    UNDEF   = 0
+    MALE    = 1
+    FEMALE  = 2
+
+enum_end
+
+############################################################
+
+obj User
+
+    e gender_e              gender
+    string                  name
+    string                  first_name
+    o basic_objects::Email  email
+    string                  phone
+    o basic_objects::Date   birthday
+
+obj_end
+
+############################################################
+
+msg RegisterUserRequest: Request
+
+    o User                 lead
+
+msg_end
+
+msg RegisterUserResponse: BackwardMessage
+
+msg_end
+
+############################################################
+
+msg ConfirmRegistrationRequest: Request
+
+    string                 registration_key
+
+msg_end
+
+msg ConfirmRegistrationResponse: BackwardMessage
+
+msg_end
+
+############################################################
