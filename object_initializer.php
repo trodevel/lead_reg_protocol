@@ -77,6 +77,24 @@ function initialize__ConfirmRegistrationResponse( & $res
 
 }
 
+// objects (constructors)
+
+function create__User(
+    $gender // gender_e
+    , $name // string
+    , $first_name // string
+    , $email // basic_objects\Email
+    , $phone // string
+    , $birthday // basic_objects\Date
+ )
+{
+    $res = new User;
+
+    initialize__User( $res, $gender, $name, $first_name, $email, $phone, $birthday );
+
+    return $res;
+}
+
 // messages (constructors)
 
 function create__RegisterUserRequest(
