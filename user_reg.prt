@@ -18,7 +18,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-# $Revision: 13344 $ $Date:: 2020-07-02 #$ $Author: serge $
+# $Revision: 13486 $ $Date:: 2020-08-13 #$ $Author: serge $
 
 ############################################################
 
@@ -26,7 +26,13 @@ protocol user_reg
 
 ############################################################
 
+base generic_protocol
+
 use basic_objects
+
+############################################################
+
+extern generic_protocol::BackwardMessage
 
 ############################################################
 
@@ -36,8 +42,7 @@ base_msg_end
 
 ############################################################
 
-#base_msg BackwardMessage: generic_protocol::BackwardMessage
-base_msg BackwardMessage
+base_msg BackwardMessage: generic_protocol::BackwardMessage
 
 base_msg_end
 
