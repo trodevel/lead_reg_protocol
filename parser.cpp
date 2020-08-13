@@ -4,6 +4,7 @@
 
 // includes
 #include "parser.h"
+#include "generic_protocol/parser.h"
 #include "basic_objects/parser.h"
 #include "basic_parser/parser.h"
 #include "basic_parser/malformed_request.h"

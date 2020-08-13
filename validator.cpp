@@ -1,5 +1,6 @@
 // includes
 #include "validator.h"
+#include "generic_protocol/validator.h"
 #include "basic_objects/validator.h"
 #include "basic_parser/validator.h"
 

@@ -3,6 +3,7 @@
 
 // includes
 #include "str_helper.h"
+#include "generic_protocol/str_helper.h"
 #include "basic_objects/str_helper.h"
 #include "basic_parser/str_helper.h"
 

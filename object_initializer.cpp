@@ -1,5 +1,7 @@
 // includes
 #include "object_initializer.h"
+#include "generic_protocol/object_initializer.h"
+#include "basic_objects/object_initializer.h"
 
 namespace user_reg_protocol
 {
@@ -34,7 +36,9 @@ void initialize( Request * res
 void initialize( BackwardMessage * res
  )
 {
-    // no base class
+    // base class
+    ::generic_protocol::initialize( static_cast<generic_protocol::BackwardMessage*>( res ) );
+
 }
 
 // messages

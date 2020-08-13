@@ -5,6 +5,7 @@ namespace user_reg_protocol;
 
 // includes
 require_once __DIR__.'/../basic_parser/object.php';
+require_once __DIR__.'/../generic_protocol/protocol.php';
 
 // includes for used modules
 require_once __DIR__.'/../basic_objects/protocol.php';
@@ -34,10 +35,11 @@ class Request extends \basic_parser\Object
 };
 
 // Base message
-class BackwardMessage extends \basic_parser\Object
+class BackwardMessage extends \generic_protocol\BackwardMessage
 {
     function __construct()
     {
+        parent::__construct();
     }
 };
 

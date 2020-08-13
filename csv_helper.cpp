@@ -4,6 +4,7 @@
 
 // includes
 #include "csv_helper.h"
+#include "generic_protocol/csv_helper.h"
 #include "basic_objects/csv_helper.h"
 #include "basic_parser/csv_helper.h"
 
@@ -151,7 +152,7 @@ std::ostream & write( std::ostream & os, const basic_parser::Object & r )
     if( it != funcs.end() )
         return it->second( os, r );
 
-    return os;
+    return ::generic_protocol::csv_helper::write( os, r );
 }
 
 } // namespace csv_helper

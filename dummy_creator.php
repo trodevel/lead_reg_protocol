@@ -4,6 +4,7 @@ namespace user_reg_protocol;
 
 
 // includes
+require_once __DIR__.'/../generic_protocol/dummy_creator.php';
 require_once __DIR__.'/../basic_parser/dummy_creator.php';
 require_once __DIR__.'/../basic_objects/dummy_creator.php';
 require_once 'object_initializer.php';

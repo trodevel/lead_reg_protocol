@@ -4,6 +4,7 @@ namespace user_reg_protocol;
 
 
 // includes
+require_once __DIR__.'/../generic_protocol/parser.php';
 require_once __DIR__.'/../basic_objects/parser.php';
 require_once __DIR__.'/../basic_parser/parser.php';
 
@@ -53,7 +54,7 @@ function parse__RegisterUserRequest( & $csv_arr )
     $offset = 1;
 
     // base class
-    parse_Request( $res, $csv_arr, $offset );
+    parse__Request( $res, $csv_arr, $offset );
 
     $res->lead = parse__User( $csv_arr, $offset );
 
@@ -67,7 +68,7 @@ function parse__RegisterUserResponse( & $csv_arr )
     $offset = 1;
 
     // base class
-    parse_BackwardMessage( $res, $csv_arr, $offset );
+    parse__BackwardMessage( $res, $csv_arr, $offset );
 
 
     return $res;
@@ -80,7 +81,7 @@ function parse__ConfirmRegistrationRequest( & $csv_arr )
     $offset = 1;
 
     // base class
-    parse_Request( $res, $csv_arr, $offset );
+    parse__Request( $res, $csv_arr, $offset );
 
     $res->registration_key = \basic_parser\parse__string( $csv_arr, $offset );
 
@@ -94,7 +95,7 @@ function parse__ConfirmRegistrationResponse( & $csv_arr )
     $offset = 1;
 
     // base class
-    parse_BackwardMessage( $res, $csv_arr, $offset );
+    parse__BackwardMessage( $res, $csv_arr, $offset );
 
 
     return $res;
@@ -102,7 +103,7 @@ function parse__ConfirmRegistrationResponse( & $csv_arr )
 
 // generic
 
-class Parser
+class Parser extends \generic_protocol\Parser
 {
 
 protected static function parse_csv_array( $csv_arr )
@@ -112,10 +113,10 @@ protected static function parse_csv_array( $csv_arr )
 
     $handler_map = array(
         // messages
-        'user_reg_protocol\RegisterUserRequest'         => 'parse__RegisterUserRequest',
-        'user_reg_protocol\RegisterUserResponse'         => 'parse__RegisterUserResponse',
-        'user_reg_protocol\ConfirmRegistrationRequest'         => 'parse__ConfirmRegistrationRequest',
-        'user_reg_protocol\ConfirmRegistrationResponse'         => 'parse__ConfirmRegistrationResponse',
+        'user_reg/RegisterUserRequest'         => 'parse__RegisterUserRequest',
+        'user_reg/RegisterUserResponse'         => 'parse__RegisterUserResponse',
+        'user_reg/ConfirmRegistrationRequest'         => 'parse__ConfirmRegistrationRequest',
+        'user_reg/ConfirmRegistrationResponse'         => 'parse__ConfirmRegistrationResponse',
     );
 
     $type = $csv_arr[0][0];
@@ -123,10 +124,10 @@ protected static function parse_csv_array( $csv_arr )
     if( array_key_exists( $type, $handler_map ) )
     {
         $func = '\\user_reg_protocol\\' . $handler_map[ $type ];
-        return $func( $obj );
+        return $func( $csv_arr[0] );
     }
 
-    return NULL;
+    return \generic_protocol\Parser::parse_csv_array( $csv_arr );
 }
 
 }

@@ -4,6 +4,7 @@ namespace user_reg_protocol;
 
 
 // includes
+require_once __DIR__.'/../generic_protocol/request_encoder.php';
 require_once __DIR__.'/../basic_objects/request_encoder.php';
 require_once __DIR__.'/../basic_parser/request_encoder.php';
 
@@ -119,7 +120,7 @@ function to_generic_request( $obj )
         return $func( $obj );
     }
 
-    return NULL;
+    return \generic_protocol\to_generic_request( $obj );
 }
 
 # namespace_end user_reg_protocol

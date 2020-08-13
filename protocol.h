@@ -7,6 +7,7 @@
 
 // includes
 #include "basic_parser/object.h"
+#include "generic_protocol/protocol.h"
 
 // includes for used modules
 #include "basic_objects/protocol.h"
@@ -39,7 +40,7 @@ struct Request: public basic_parser::Object
 };
 
 // Base message
-struct BackwardMessage: public basic_parser::Object
+struct BackwardMessage: public generic_protocol::BackwardMessage
 {
 };
 
