@@ -29,6 +29,9 @@ std::ostream & write( std::ostream & os, const RegisterUserResponse & r );
 std::ostream & write( std::ostream & os, const ConfirmRegistrationRequest & r );
 std::ostream & write( std::ostream & os, const ConfirmRegistrationResponse & r );
 
+// generic
+std::ostream & write( std::ostream & os, const basic_parser::Object & r );
+
 template<class T>
 std::string to_csv( const T & l )
 {
@@ -38,9 +41,6 @@ std::string to_csv( const T & l )
 
     return os.str();
 }
-
-// generic
-std::ostream & write( std::ostream & os, const basic_parser::Object & r );
 
 } // namespace csv_helper
 
