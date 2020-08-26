@@ -15,7 +15,11 @@ namespace dummy
 
 gender_e create__gender_e()
 {
-    auto res = gender_e::UNDEF;
+    static const unsigned SIZE = 3;
+
+    static const gender_e values[SIZE] = { gender_e::UNDEF, gender_e::MALE, gender_e::FEMALE,  };
+
+    auto res = values[ ::basic_parser::dummy::create__uint32() % SIZE ];
 
     return res;
 }

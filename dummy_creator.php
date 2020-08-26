@@ -13,7 +13,11 @@ require_once 'object_initializer.php';
 
 function create_dummy__gender_e()
 {
-    $res = gender_e__UNDEF;
+    $SIZE = 3;
+
+    $values = array( gender_e__UNDEF, gender_e__MALE, gender_e__FEMALE,  );
+
+    $res = $values[ \basic_parser\create_dummy__int32() % $SIZE ];
 
     return $res;
 }
