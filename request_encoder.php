@@ -37,6 +37,7 @@ function to_generic_request__User( $prefix, & $r )
 function to_generic_request__Request( & $r )
 {
     $res = "";
+    // no base class
 
     return $res;
 }
@@ -44,6 +45,9 @@ function to_generic_request__Request( & $r )
 function to_generic_request__BackwardMessage( & $r )
 {
     $res = "";
+    // base class
+    $res .= \generic_protocol\to_generic_request__BackwardMessage( $r );
+
 
     return $res;
 }

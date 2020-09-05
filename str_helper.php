@@ -31,7 +31,9 @@ function to_string__gender_e( $r )
 
 function to_string__User( & $r )
 {
-    $res = "";    $res .= "(";
+    $res = "";
+
+    $res .= "(";
 
     $res .= " gender=" . to_string__gender_e( $r->gender );
     $res .= " name=" . \basic_parser\to_string__string( $r->name );
@@ -49,8 +51,11 @@ function to_string__User( & $r )
 
 function to_string__Request( & $r )
 {
-    $res = "";    $res .= "(";
+    $res = "";
 
+    $res .= "(";
+
+    // no base class
 
     $res .= ")";
 
@@ -59,7 +64,12 @@ function to_string__Request( & $r )
 
 function to_string__BackwardMessage( & $r )
 {
-    $res = "";    $res .= "(";
+    $res = "";
+
+    $res .= "(";
+
+    // base class
+    $res .= \generic_protocol\to_string__BackwardMessage( $r );
 
 
     $res .= ")";
@@ -71,7 +81,9 @@ function to_string__BackwardMessage( & $r )
 
 function to_string__RegisterUserRequest( & $r )
 {
-    $res = "";    // base class
+    $res = "";
+
+    // base class
     $res .= to_string__Request( $r );
 
     $res .= " lead=" . to_string__User( $r->lead );
@@ -81,7 +93,9 @@ function to_string__RegisterUserRequest( & $r )
 
 function to_string__RegisterUserResponse( & $r )
 {
-    $res = "";    // base class
+    $res = "";
+
+    // base class
     $res .= to_string__BackwardMessage( $r );
 
 
@@ -90,7 +104,9 @@ function to_string__RegisterUserResponse( & $r )
 
 function to_string__ConfirmRegistrationRequest( & $r )
 {
-    $res = "";    // base class
+    $res = "";
+
+    // base class
     $res .= to_string__Request( $r );
 
     $res .= " registration_key=" . \basic_parser\to_string__string( $r->registration_key );
@@ -100,7 +116,9 @@ function to_string__ConfirmRegistrationRequest( & $r )
 
 function to_string__ConfirmRegistrationResponse( & $r )
 {
-    $res = "";    // base class
+    $res = "";
+
+    // base class
     $res .= to_string__BackwardMessage( $r );
 
 

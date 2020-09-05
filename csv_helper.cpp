@@ -44,12 +44,16 @@ std::ostream & write( std::ostream & os, const User & r )
 
 std::ostream & write( std::ostream & os, const Request & r )
 {
+    // no base class
 
     return os;
 }
 
 std::ostream & write( std::ostream & os, const BackwardMessage & r )
 {
+    // base class
+    ::generic_protocol::csv_helper::write( os, static_cast<const generic_protocol::BackwardMessage&>( r ) );
+
 
     return os;
 }

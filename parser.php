@@ -37,11 +37,15 @@ function parse__User( & $csv_arr, & $offset )
 
 function parse__Request( & $res, & $csv_arr, & $offset )
 {
+    // no base class
 
 }
 
 function parse__BackwardMessage( & $res, & $csv_arr, & $offset )
 {
+    // base class
+    \generic_protocol\parse__BackwardMessage( $res, $csv_arr, $offset );
+
 
 }
 
@@ -109,7 +113,7 @@ class Parser extends \generic_protocol\Parser
 protected static function parse_csv_array( $csv_arr )
 {
     if( sizeof( $csv_arr ) < 1 )
-        return self::create_parse_error();
+        return NULL;
 
     $handler_map = array(
         // messages

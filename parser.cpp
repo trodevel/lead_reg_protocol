@@ -47,10 +47,14 @@ void get_value_or_throw( User * res, const std::string & prefix, const generic_r
 
 void get_value_or_throw( Request * res, const generic_request::Request & r )
 {
+    // no base class
 }
 
 void get_value_or_throw( BackwardMessage * res, const generic_request::Request & r )
 {
+    // base class
+    ::generic_protocol::parser::get_value_or_throw( static_cast<generic_protocol::BackwardMessage*>( res ), r );
+
 }
 
 // messages
@@ -158,7 +162,7 @@ basic_parser::Object* to_forward_message( const generic_request::Request & r )
     if( it != funcs.end() )
         return it->second( r );
 
-    return nullptr;
+    return generic_protocol::parser::to_forward_message( r );
 }
 
 using basic_parser::MalformedRequest;

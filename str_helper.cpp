@@ -64,6 +64,7 @@ std::ostream & write( std::ostream & os, const Request & r )
 {
     os << "(";
 
+    // no base class
 
     os << ")";
 
@@ -73,6 +74,9 @@ std::ostream & write( std::ostream & os, const Request & r )
 std::ostream & write( std::ostream & os, const BackwardMessage & r )
 {
     os << "(";
+
+    // base class
+    ::generic_protocol::str_helper::write( os, static_cast<const generic_protocol::BackwardMessage&>( r ) );
 
 
     os << ")";
