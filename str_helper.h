@@ -14,7 +14,6 @@ namespace str_helper
 {
 
 // enums
-std::ostream & write( std::ostream & os, const gender_e r );
 
 // objects
 std::ostream & write( std::ostream & os, const User & r );

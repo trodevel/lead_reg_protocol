@@ -22,13 +22,6 @@ void validate( const T & o, const std::string & name )
 
 // enums
 
-void example_gender_e()
-{
-    auto obj = user_reg_protocol::dummy::create__gender_e();
-
-    std::cout << "gender_e : STR : " << user_reg_protocol::str_helper::to_string( obj ) << std::endl;
-}
-
 
 // objects
 
@@ -104,7 +97,6 @@ int main( int argc, char ** argv )
 
     // enums
 
-    example_gender_e();
 
     // objects
 

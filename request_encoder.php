@@ -10,20 +10,14 @@ require_once __DIR__.'/../basic_parser/request_encoder.php';
 
 // enums
 
-function to_generic_request__gender_e( $prefix, $r )
-{
-    $res = \basic_parser\to_generic_request__int( $prefix, $r );
-
-    return $res;
-}
-
 // objects
 
 function to_generic_request__User( $prefix, & $r )
 {
     $res = "";
-    $res .= "&" . to_generic_request__gender_e( $prefix . ".GENDER", $r->gender );
-    $res .= "&" . \basic_parser\to_generic_request__string( $prefix . ".NAME", $r->name );
+    $res .= "&" . \basic_objects\to_generic_request__gender_e( $prefix . ".GENDER", $r->gender );
+    $res .= "&" . \basic_parser\to_generic_request__string( $prefix . ".LOGIN", $r->login );
+    $res .= "&" . \basic_parser\to_generic_request__string( $prefix . ".LAST_NAME", $r->last_name );
     $res .= "&" . \basic_parser\to_generic_request__string( $prefix . ".FIRST_NAME", $r->first_name );
     $res .= "&" . \basic_objects\to_generic_request__Email( $prefix . ".EMAIL", $r->email );
     $res .= "&" . \basic_parser\to_generic_request__string( $prefix . ".PHONE", $r->phone );

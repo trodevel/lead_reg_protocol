@@ -20,7 +20,6 @@ request_type_e detect_request_type( const generic_request::Request & r );
 
 // enums
 
-void get_value_or_throw( gender_e * res, const std::string & key, const generic_request::Request & r );
 
 // objects
 

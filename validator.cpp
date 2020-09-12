@@ -15,19 +15,13 @@ using ::basic_parser::validator::validate_t;
 
 // enums
 
-bool validate( const std::string & prefix, const gender_e r )
-{
-    validate( prefix, static_cast<unsigned>( r ), true, true, static_cast<unsigned>( gender_e::UNDEF ), true, true, static_cast<unsigned>( gender_e::FEMALE ) );
-
-    return true;
-}
-
 // objects
 
 bool validate( const std::string & prefix, const User & r )
 {
-    validate( prefix + ".GENDER", r.gender );
-    validate( prefix + ".NAME", r.name ); // String
+    ::basic_objects::validator::validate( prefix + ".GENDER", r.gender );
+    validate( prefix + ".LOGIN", r.login ); // String
+    validate( prefix + ".LAST_NAME", r.last_name ); // String
     validate( prefix + ".FIRST_NAME", r.first_name ); // String
     ::basic_objects::validator::validate( prefix + ".EMAIL", r.email );
     validate( prefix + ".PHONE", r.phone ); // String
@@ -80,7 +74,7 @@ bool validate( const ConfirmRegistrationRequest & r )
     // base class
     validator::validate( static_cast<const Request&>( r ) );
 
-    validate( "REGISTRATION_KEY", r.registration_key ); // String
+    validate( "REGISTRATION_KEY", r.registration_key, true, true, static_cast<std::size_t>( 1 ), true, true, static_cast<std::size_t>( 256 ) ); // String
 
     return true;
 }

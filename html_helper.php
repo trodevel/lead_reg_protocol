@@ -11,25 +11,16 @@ require_once 'str_helper.php';
 
 // enums
 
-function to_html_header__gender_e( $r )
-{
-    return array( 'GENDER_E' );
-}
-
-function to_html__gender_e( $r )
-{
-    return to_string__gender_e( $r ) . " (" . $r . ")";
-}
-
 // objects
 
 function to_html__User( & $r )
 {
-    $header = array( 'GENDER', 'NAME', 'FIRST_NAME', 'EMAIL', 'PHONE', 'BIRTHDAY' );
+    $header = array( 'GENDER', 'LOGIN', 'LAST_NAME', 'FIRST_NAME', 'EMAIL', 'PHONE', 'BIRTHDAY' );
 
     $data = array(
-        to_html__gender_e( $r->gender ),
-        \basic_parser\to_html__string( $r->name ),
+        \basic_objects\to_html__gender_e( $r->gender ),
+        \basic_parser\to_html__string( $r->login ),
+        \basic_parser\to_html__string( $r->last_name ),
         \basic_parser\to_html__string( $r->first_name ),
         \basic_objects\to_html__Email( $r->email ),
         \basic_parser\to_html__string( $r->phone ),

@@ -10,23 +10,6 @@ require_once __DIR__.'/../basic_parser/str_helper.php';
 
 // enums
 
-function to_string__gender_e( $r )
-{
-    $map = array
-    (
-        gender_e__UNDEF => 'UNDEF',
-        gender_e__MALE => 'MALE',
-        gender_e__FEMALE => 'FEMALE',
-    );
-
-    if( array_key_exists( $r, $map ) )
-    {
-        return $map[ $r ];
-    }
-
-    return '?';
-}
-
 // objects
 
 function to_string__User( & $r )
@@ -35,8 +18,9 @@ function to_string__User( & $r )
 
     $res .= "(";
 
-    $res .= " gender=" . to_string__gender_e( $r->gender );
-    $res .= " name=" . \basic_parser\to_string__string( $r->name );
+    $res .= " gender=" . \basic_objects\to_string__gender_e( $r->gender );
+    $res .= " login=" . \basic_parser\to_string__string( $r->login );
+    $res .= " last_name=" . \basic_parser\to_string__string( $r->last_name );
     $res .= " first_name=" . \basic_parser\to_string__string( $r->first_name );
     $res .= " email=" . \basic_objects\to_string__Email( $r->email );
     $res .= " phone=" . \basic_parser\to_string__string( $r->phone );

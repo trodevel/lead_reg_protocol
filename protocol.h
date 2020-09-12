@@ -15,19 +15,12 @@
 namespace user_reg_protocol
 {
 
-// Enum
-enum class gender_e
-{
-    UNDEF                = 0,
-    MALE                 = 1,
-    FEMALE               = 2,
-};
-
 // Object
 struct User
 {
-    gender_e             gender    ;
-    std::string          name      ;
+    basic_objects::gender_e gender    ;
+    std::string          login     ;
+    std::string          last_name ;
     std::string          first_name;
     basic_objects::Email email     ;
     std::string          phone     ;
@@ -72,7 +65,7 @@ struct ConfirmRegistrationRequest: public Request
         message_id = 3250536916
     };
 
-    std::string          registration_key;
+    std::string          registration_key; // size constrain: [1, 256]
 };
 
 // Message

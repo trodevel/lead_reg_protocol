@@ -10,8 +10,9 @@ namespace user_reg_protocol
 // objects
 
 void initialize( User * res
-    , gender_e gender
-    , const std::string &  name
+    , basic_objects::gender_e gender
+    , const std::string &  login
+    , const std::string &  last_name
     , const std::string &  first_name
     , const basic_objects::Email &  email
     , const std::string &  phone

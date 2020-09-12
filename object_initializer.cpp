@@ -9,8 +9,9 @@ namespace user_reg_protocol
 // objects
 
 void initialize( User * res
-    , gender_e gender
-    , const std::string &  name
+    , basic_objects::gender_e gender
+    , const std::string &  login
+    , const std::string &  last_name
     , const std::string &  first_name
     , const basic_objects::Email &  email
     , const std::string &  phone
@@ -18,7 +19,8 @@ void initialize( User * res
  )
 {
     res->gender = gender;
-    res->name = name;
+    res->login = login;
+    res->last_name = last_name;
     res->first_name = first_name;
     res->email = email;
     res->phone = phone;

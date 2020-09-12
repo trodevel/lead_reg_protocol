@@ -11,17 +11,6 @@ require_once 'object_initializer.php';
 
 // enums
 
-function create_dummy__gender_e()
-{
-    $SIZE = 3;
-
-    $values = array( gender_e__UNDEF, gender_e__MALE, gender_e__FEMALE,  );
-
-    $res = $values[ \basic_parser\create_dummy__int32() % $SIZE ];
-
-    return $res;
-}
-
 // objects
 
 function create_dummy__User()
@@ -29,7 +18,8 @@ function create_dummy__User()
     $res = new User;
 
     initialize__User( $res
-        , create_dummy__gender_e()
+        , \basic_objects\create_dummy__gender_e()
+        , \basic_parser\create_dummy__string()
         , \basic_parser\create_dummy__string()
         , \basic_parser\create_dummy__string()
         , \basic_objects\create_dummy__Email()

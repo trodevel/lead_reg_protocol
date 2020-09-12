@@ -10,21 +10,15 @@ require_once __DIR__.'/../basic_parser/parser.php';
 
 // enums
 
-function parse__gender_e( & $csv_arr, & $offset )
-{
-    $res = \basic_parser\parse__int( $csv_arr, $offset );
-
-    return $res;
-}
-
 // objects
 
 function parse__User( & $csv_arr, & $offset )
 {
     $res = new User;
 
-    $res->gender = parse__gender_e( $csv_arr, $offset );
-    $res->name = \basic_parser\parse__string( $csv_arr, $offset );
+    $res->gender = \basic_objects\parse__gender_e( $csv_arr, $offset );
+    $res->login = \basic_parser\parse__string( $csv_arr, $offset );
+    $res->last_name = \basic_parser\parse__string( $csv_arr, $offset );
     $res->first_name = \basic_parser\parse__string( $csv_arr, $offset );
     $res->email = \basic_objects\parse__Email( $csv_arr, $offset );
     $res->phone = \basic_parser\parse__string( $csv_arr, $offset );

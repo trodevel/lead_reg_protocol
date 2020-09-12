@@ -10,8 +10,9 @@ require_once __DIR__.'/../generic_protocol/object_initializer.php';
 // objects
 
 function initialize__User( & $res
-    , $gender // gender_e
-    , $name // string
+    , $gender // basic_objects\gender_e
+    , $login // string
+    , $last_name // string
     , $first_name // string
     , $email // basic_objects\Email
     , $phone // string
@@ -19,7 +20,8 @@ function initialize__User( & $res
  )
 {
     $res->gender = $gender;
-    $res->name = $name;
+    $res->login = $login;
+    $res->last_name = $last_name;
     $res->first_name = $first_name;
     $res->email = $email;
     $res->phone = $phone;
@@ -83,8 +85,9 @@ function initialize__ConfirmRegistrationResponse( & $res
 // objects (constructors)
 
 function create__User(
-    $gender // gender_e
-    , $name // string
+    $gender // basic_objects\gender_e
+    , $login // string
+    , $last_name // string
     , $first_name // string
     , $email // basic_objects\Email
     , $phone // string
@@ -93,7 +96,7 @@ function create__User(
 {
     $res = new User;
 
-    initialize__User( $res, $gender, $name, $first_name, $email, $phone, $birthday );
+    initialize__User( $res, $gender, $login, $last_name, $first_name, $email, $phone, $birthday );
 
     return $res;
 }

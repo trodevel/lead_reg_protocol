@@ -19,19 +19,13 @@ using ::basic_parser::csv_helper::write_t;
 
 // enums
 
-std::ostream & write( std::ostream & os, const gender_e r )
-{
-    write( os, static_cast<unsigned>( r ) );
-
-    return os;
-}
-
 // objects
 
 std::ostream & write( std::ostream & os, const User & r )
 {
-    write( os, r.gender );
-    write( os, r.name );
+    ::basic_objects::csv_helper::write( os, r.gender );
+    write( os, r.login );
+    write( os, r.last_name );
     write( os, r.first_name );
     ::basic_objects::csv_helper::write( os, r.email );
     write( os, r.phone );

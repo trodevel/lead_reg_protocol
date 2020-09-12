@@ -10,16 +10,12 @@ require_once __DIR__.'/../generic_protocol/protocol.php';
 // includes for used modules
 require_once __DIR__.'/../basic_objects/protocol.php';
 
-// Enum gender_e
-const gender_e__UNDEF                = 0;
-const gender_e__MALE                 = 1;
-const gender_e__FEMALE               = 2;
-
 // Object
 class User
 {
-    public $gender              ; // type: gender_e
-    public $name                ; // type: string
+    public $gender              ; // type: basic_objects\gender_e
+    public $login               ; // type: string
+    public $last_name           ; // type: string
     public $first_name          ; // type: string
     public $email               ; // type: basic_objects\Email
     public $phone               ; // type: string
@@ -77,7 +73,7 @@ class ConfirmRegistrationRequest extends Request
 
     const MESSAGE_ID = 3250536916;
 
-    public $registration_key    ; // type: string
+    public $registration_key    ; // type: string // size constrain: [1, 256]
 };
 
 // Message

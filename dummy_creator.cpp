@@ -13,17 +13,6 @@ namespace dummy
 
 // enums
 
-gender_e create__gender_e()
-{
-    static const unsigned SIZE = 3;
-
-    static const gender_e values[SIZE] = { gender_e::UNDEF, gender_e::MALE, gender_e::FEMALE,  };
-
-    auto res = values[ ::basic_parser::dummy::create__uint32() % SIZE ];
-
-    return res;
-}
-
 // objects
 
 User create__User()
@@ -31,7 +20,8 @@ User create__User()
     User res;
 
     ::user_reg_protocol::initialize( & res
-        , dummy::create__gender_e()
+        , ::basic_objects::dummy::create__gender_e()
+        , ::basic_parser::dummy::create__string()
         , ::basic_parser::dummy::create__string()
         , ::basic_parser::dummy::create__string()
         , ::basic_objects::dummy::create__Email()

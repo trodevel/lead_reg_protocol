@@ -20,34 +20,15 @@ using ::basic_parser::str_helper::write_t;
 
 #define TUPLE_VAL_STR(_x_)  _x_,#_x_
 
-std::ostream & write( std::ostream & os, const gender_e r )
-{
-    typedef gender_e Type;
-    static const std::map< Type, std::string > m =
-    {
-        { Type:: TUPLE_VAL_STR( UNDEF ) },
-        { Type:: TUPLE_VAL_STR( MALE ) },
-        { Type:: TUPLE_VAL_STR( FEMALE ) },
-    };
-
-    auto it = m.find( r );
-
-    static const std::string undef( "undef" );
-
-    if( it != m.end() )
-        return write( os, it->second );
-
-    return write( os, undef );
-}
-
 // objects
 
 std::ostream & write( std::ostream & os, const User & r )
 {
     os << "(";
 
-    os << " gender="; write( os, r.gender );
-    os << " name="; write( os, r.name );
+    os << " gender="; ::basic_objects::str_helper::write( os, r.gender );
+    os << " login="; write( os, r.login );
+    os << " last_name="; write( os, r.last_name );
     os << " first_name="; write( os, r.first_name );
     os << " email="; ::basic_objects::str_helper::write( os, r.email );
     os << " phone="; write( os, r.phone );

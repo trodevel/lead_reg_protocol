@@ -22,21 +22,13 @@ using ::basic_parser::parser::get_value_or_throw_t;
 
 // enums
 
-void get_value_or_throw( gender_e * res, const std::string & key, const generic_request::Request & r )
-{
-    uint32_t res_i;
-
-    get_value_or_throw( & res_i, key, r );
-
-    * res = static_cast<gender_e>( res_i );
-}
-
 // objects
 
 void get_value_or_throw( User * res, const std::string & prefix, const generic_request::Request & r )
 {
-    get_value_or_throw( & res->gender, prefix + ".GENDER", r );
-    get_value_or_throw( & res->name, prefix + ".NAME", r );
+    ::basic_objects::parser::get_value_or_throw( & res->gender, prefix + ".GENDER", r );
+    get_value_or_throw( & res->login, prefix + ".LOGIN", r );
+    get_value_or_throw( & res->last_name, prefix + ".LAST_NAME", r );
     get_value_or_throw( & res->first_name, prefix + ".FIRST_NAME", r );
     ::basic_objects::parser::get_value_or_throw( & res->email, prefix + ".EMAIL", r );
     get_value_or_throw( & res->phone, prefix + ".PHONE", r );

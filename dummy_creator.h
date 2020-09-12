@@ -12,7 +12,6 @@ namespace dummy
 
 // enums
 
-gender_e create__gender_e();
 
 // objects
 
