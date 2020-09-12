@@ -18,7 +18,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-# $Revision: 13486 $ $Date:: 2020-08-13 #$ $Author: serge $
+# $Revision: 13797 $ $Date:: 2020-09-13 #$ $Author: serge $
 
 ############################################################
 
@@ -48,19 +48,9 @@ base_msg_end
 
 ############################################################
 
-enum gender_e
-
-    UNDEF   = 0
-    MALE    = 1
-    FEMALE  = 2
-
-enum_end
-
-############################################################
-
 obj User
 
-    e gender_e              gender
+    e basic_objects::gender_e   gender
     string                  name
     string                  first_name
     o basic_objects::Email  email
