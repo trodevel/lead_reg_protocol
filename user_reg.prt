@@ -18,7 +18,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-# $Revision: 13798 $ $Date:: 2020-09-13 #$ $Author: serge $
+# $Revision: 13799 $ $Date:: 2020-09-13 #$ $Author: serge $
 
 ############################################################
 
@@ -51,6 +51,7 @@ base_msg_end
 obj User
 
     e basic_objects::gender_e   gender
+    string                  login
     string                  name
     string                  first_name
     o basic_objects::Email  email
