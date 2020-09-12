@@ -18,7 +18,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-# $Revision: 13797 $ $Date:: 2020-09-13 #$ $Author: serge $
+# $Revision: 13798 $ $Date:: 2020-09-13 #$ $Author: serge $
 
 ############################################################
 
@@ -75,7 +75,7 @@ msg_end
 
 msg ConfirmRegistrationRequest: Request
 
-    string                 registration_key
+    string                 registration_key : [1,256]
 
 msg_end
 
