@@ -30,6 +30,7 @@ void initialize( BackwardMessage * res
 
 void initialize( RegisterUserRequest * res
     , const User &  lead
+    , const std::string &  password
  );
 void initialize( RegisterUserResponse * res
  );
@@ -43,6 +44,7 @@ void initialize( ConfirmRegistrationResponse * res
 
 RegisterUserRequest * create_RegisterUserRequest(
     const User &  lead
+    , const std::string &  password
  );
 RegisterUserResponse * create_RegisterUserResponse(
  );

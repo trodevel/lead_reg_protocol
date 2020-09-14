@@ -50,6 +50,7 @@ class RegisterUserRequest extends Request
     const MESSAGE_ID = 2862506222;
 
     public $lead                ; // type: User
+    public $password            ; // type: string // size constrain: [6, 40]
 };
 
 // Message

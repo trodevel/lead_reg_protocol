@@ -73,6 +73,7 @@ std::ostream & write( std::ostream & os, const RegisterUserRequest & r )
     str_helper::write( os, static_cast<const Request&>( r ) );
 
     os << " lead="; write( os, r.lead );
+    os << " password="; write( os, r.password );
 
     return os;
 }

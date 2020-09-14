@@ -57,6 +57,7 @@ function to_generic_request__RegisterUserRequest( & $r )
     $res .= to_generic_request__Request( $r );
 
     $res .= "&" . to_generic_request__User( "LEAD", $r->lead );
+    $res .= "&" . \basic_parser\to_generic_request__string( "PASSWORD", $r->password );
 
     return $res;
 }

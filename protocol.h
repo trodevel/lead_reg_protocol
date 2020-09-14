@@ -46,6 +46,7 @@ struct RegisterUserRequest: public Request
     };
 
     User                 lead      ;
+    std::string          password  ; // size constrain: [6, 40]
 };
 
 // Message

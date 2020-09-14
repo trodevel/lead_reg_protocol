@@ -56,6 +56,7 @@ bool validate( const RegisterUserRequest & r )
     validator::validate( static_cast<const Request&>( r ) );
 
     validate( "LEAD", r.lead );
+    validate( "PASSWORD", r.password, true, true, static_cast<std::size_t>( 6 ), true, true, static_cast<std::size_t>( 40 ) ); // String
 
     return true;
 }

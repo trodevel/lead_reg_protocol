@@ -62,6 +62,7 @@ std::ostream & write( std::ostream & os, const RegisterUserRequest & r )
     csv_helper::write( os, static_cast<const Request&>( r ) );
 
     write( os, r.lead );
+    write( os, r.password );
 
     return os;
 }

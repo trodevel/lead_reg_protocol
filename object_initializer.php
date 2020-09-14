@@ -48,12 +48,14 @@ function initialize__BackwardMessage( & $res
 
 function initialize__RegisterUserRequest( & $res
     , $lead // User
+    , $password // string
  )
 {
     // base class
     initialize__Request( $res );
 
     $res->lead = $lead;
+    $res->password = $password;
 }
 
 function initialize__RegisterUserResponse( & $res
@@ -105,11 +107,12 @@ function create__User(
 
 function create__RegisterUserRequest(
     $lead // User
+    , $password // string
  )
 {
     $res = new RegisterUserRequest;
 
-    initialize__RegisterUserRequest( $res, $lead );
+    initialize__RegisterUserRequest( $res, $lead, $password );
 
     return $res;
 }

@@ -55,6 +55,7 @@ function parse__RegisterUserRequest( & $csv_arr )
     parse__Request( $res, $csv_arr, $offset );
 
     $res->lead = parse__User( $csv_arr, $offset );
+    $res->password = \basic_parser\parse__string( $csv_arr, $offset );
 
     return $res;
 }

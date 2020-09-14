@@ -71,6 +71,7 @@ function to_string__RegisterUserRequest( & $r )
     $res .= to_string__Request( $r );
 
     $res .= " lead=" . to_string__User( $r->lead );
+    $res .= " password=" . \basic_parser\to_string__string( $r->password );
 
     return $res;
 }

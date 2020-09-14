@@ -40,6 +40,7 @@ RegisterUserRequest * create__RegisterUserRequest()
 
     ::user_reg_protocol::initialize( res
         , dummy::create__User()
+        , ::basic_parser::dummy::create__string()
         );
 
     return res;

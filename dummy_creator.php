@@ -37,6 +37,7 @@ function create_dummy__RegisterUserRequest()
 
     initialize__RegisterUserRequest( $res
         , create_dummy__User()
+        , \basic_parser\create_dummy__string()
         );
     return $res;
 }

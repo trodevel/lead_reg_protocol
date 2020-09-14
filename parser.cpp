@@ -57,6 +57,7 @@ void get_value_or_throw( RegisterUserRequest * res, const generic_request::Reque
     parser::get_value_or_throw( static_cast<Request*>( res ), r );
 
     get_value_or_throw( & res->lead, "LEAD", r );
+    get_value_or_throw( & res->password, "PASSWORD", r );
 }
 
 void get_value_or_throw( RegisterUserResponse * res, const generic_request::Request & r )

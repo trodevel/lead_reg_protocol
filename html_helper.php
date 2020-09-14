@@ -62,11 +62,12 @@ function to_html__BackwardMessage( & $r )
 
 function to_html__RegisterUserRequest( & $r )
 {
-    $header = array( 'Request', 'LEAD' );
+    $header = array( 'Request', 'LEAD', 'PASSWORD' );
 
     $data = array(
         to_html__Request( $r ),
-        to_html__User( $r->lead )
+        to_html__User( $r->lead ),
+        \basic_parser\to_html__string( $r->password )
         );
 
     $res = \basic_parser\to_html_table( $header, $data );
