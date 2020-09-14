@@ -18,7 +18,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-# $Revision: 13800 $ $Date:: 2020-09-13 #$ $Author: serge $
+# $Revision: 13809 $ $Date:: 2020-09-14 #$ $Author: serge $
 
 ############################################################
 
@@ -65,6 +65,7 @@ obj_end
 msg RegisterUserRequest: Request
 
     o User                 lead
+    string                 password : [6,40]
 
 msg_end
 
