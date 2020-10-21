@@ -1,5 +1,5 @@
-#ifndef APG_USER_REG__STR_HELPER_H
-#define APG_USER_REG__STR_HELPER_H
+#ifndef APG_USER_REG_PROTOCOL__STR_HELPER_H
+#define APG_USER_REG_PROTOCOL__STR_HELPER_H
 
 // system includes
 #include <sstream>
@@ -42,4 +42,4 @@ std::string to_string( const T & l )
 
 } // namespace user_reg_protocol
 
-#endif // APG_USER_REG__STR_HELPER_H
+#endif // APG_USER_REG_PROTOCOL__STR_HELPER_H

@@ -3,8 +3,9 @@
 namespace user_reg_protocol;
 
 
-// includes
+// base include
 require_once __DIR__.'/../generic_protocol/request_encoder.php';
+// includes
 require_once __DIR__.'/../basic_objects/request_encoder.php';
 require_once __DIR__.'/../basic_parser/request_encoder.php';
 
@@ -51,7 +52,7 @@ function to_generic_request__BackwardMessage( & $r )
 function to_generic_request__RegisterUserRequest( & $r )
 {
     // name
-    $res = \basic_parser\to_generic_request__string( "CMD", "user_reg/RegisterUserRequest" );
+    $res = \basic_parser\to_generic_request__string( "CMD", "user_reg_protocol/RegisterUserRequest" );
 
     // base class
     $res .= to_generic_request__Request( $r );
@@ -65,7 +66,7 @@ function to_generic_request__RegisterUserRequest( & $r )
 function to_generic_request__RegisterUserResponse( & $r )
 {
     // name
-    $res = \basic_parser\to_generic_request__string( "CMD", "user_reg/RegisterUserResponse" );
+    $res = \basic_parser\to_generic_request__string( "CMD", "user_reg_protocol/RegisterUserResponse" );
 
     // base class
     $res .= to_generic_request__BackwardMessage( $r );
@@ -77,7 +78,7 @@ function to_generic_request__RegisterUserResponse( & $r )
 function to_generic_request__ConfirmRegistrationRequest( & $r )
 {
     // name
-    $res = \basic_parser\to_generic_request__string( "CMD", "user_reg/ConfirmRegistrationRequest" );
+    $res = \basic_parser\to_generic_request__string( "CMD", "user_reg_protocol/ConfirmRegistrationRequest" );
 
     // base class
     $res .= to_generic_request__Request( $r );
@@ -90,7 +91,7 @@ function to_generic_request__ConfirmRegistrationRequest( & $r )
 function to_generic_request__ConfirmRegistrationResponse( & $r )
 {
     // name
-    $res = \basic_parser\to_generic_request__string( "CMD", "user_reg/ConfirmRegistrationResponse" );
+    $res = \basic_parser\to_generic_request__string( "CMD", "user_reg_protocol/ConfirmRegistrationResponse" );
 
     // base class
     $res .= to_generic_request__BackwardMessage( $r );
@@ -122,7 +123,7 @@ function to_generic_request( $obj )
     return \generic_protocol\to_generic_request( $obj );
 }
 
-# namespace_end user_reg_protocol
+// namespace_end user_reg_protocol
 
 
 ?>

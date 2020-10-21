@@ -3,9 +3,10 @@
 namespace user_reg_protocol;
 
 
-// includes
-require_once 'protocol.php';
+// base include
 require_once __DIR__.'/../generic_protocol/object_initializer.php';
+// own includes
+require_once __DIR__.'/../user_reg_protocol/protocol.php';
 
 // objects
 
@@ -148,7 +149,7 @@ function create__ConfirmRegistrationResponse(
     return $res;
 }
 
-# namespace_end user_reg_protocol
+// namespace_end user_reg_protocol
 
 
 ?>

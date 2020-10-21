@@ -56,7 +56,7 @@ std::ostream & write( std::ostream & os, const BackwardMessage & r )
 
 std::ostream & write( std::ostream & os, const RegisterUserRequest & r )
 {
-    write( os, std::string( "user_reg/RegisterUserRequest" ) );
+    write( os, std::string( "user_reg_protocol/RegisterUserRequest" ) );
 
     // base class
     csv_helper::write( os, static_cast<const Request&>( r ) );
@@ -69,7 +69,7 @@ std::ostream & write( std::ostream & os, const RegisterUserRequest & r )
 
 std::ostream & write( std::ostream & os, const RegisterUserResponse & r )
 {
-    write( os, std::string( "user_reg/RegisterUserResponse" ) );
+    write( os, std::string( "user_reg_protocol/RegisterUserResponse" ) );
 
     // base class
     csv_helper::write( os, static_cast<const BackwardMessage&>( r ) );
@@ -80,7 +80,7 @@ std::ostream & write( std::ostream & os, const RegisterUserResponse & r )
 
 std::ostream & write( std::ostream & os, const ConfirmRegistrationRequest & r )
 {
-    write( os, std::string( "user_reg/ConfirmRegistrationRequest" ) );
+    write( os, std::string( "user_reg_protocol/ConfirmRegistrationRequest" ) );
 
     // base class
     csv_helper::write( os, static_cast<const Request&>( r ) );
@@ -92,7 +92,7 @@ std::ostream & write( std::ostream & os, const ConfirmRegistrationRequest & r )
 
 std::ostream & write( std::ostream & os, const ConfirmRegistrationResponse & r )
 {
-    write( os, std::string( "user_reg/ConfirmRegistrationResponse" ) );
+    write( os, std::string( "user_reg_protocol/ConfirmRegistrationResponse" ) );
 
     // base class
     csv_helper::write( os, static_cast<const BackwardMessage&>( r ) );

@@ -1,5 +1,5 @@
-#ifndef APG_USER_REG__PARSER_H
-#define APG_USER_REG__PARSER_H
+#ifndef APG_USER_REG_PROTOCOL__PARSER_H
+#define APG_USER_REG_PROTOCOL__PARSER_H
 
 // includes
 #include "generic_request/request.h"
@@ -48,4 +48,4 @@ Object * to_ConfirmRegistrationResponse( const generic_request::Request & r );
 
 } // namespace user_reg_protocol
 
-#endif // APG_USER_REG__PARSER_H
+#endif // APG_USER_REG_PROTOCOL__PARSER_H

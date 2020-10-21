@@ -1,5 +1,5 @@
-#ifndef APG_USER_REG__REQUEST_TYPE_PARSER_H
-#define APG_USER_REG__REQUEST_TYPE_PARSER_H
+#ifndef APG_USER_REG_PROTOCOL__REQUEST_TYPE_PARSER_H
+#define APG_USER_REG_PROTOCOL__REQUEST_TYPE_PARSER_H
 
 // includes
 #include "enums.h"
@@ -14,4 +14,4 @@ public:
 };
 } // namespace user_reg_protocol
 
-#endif // APG_USER_REG__REQUEST_TYPE_PARSER_H
+#endif // APG_USER_REG_PROTOCOL__REQUEST_TYPE_PARSER_H

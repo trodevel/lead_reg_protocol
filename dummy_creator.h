@@ -1,5 +1,5 @@
-#ifndef APG_USER_REG__DUMMY_CREATOR_H
-#define APG_USER_REG__DUMMY_CREATOR_H
+#ifndef APG_USER_REG_PROTOCOL__DUMMY_CREATOR_H
+#define APG_USER_REG_PROTOCOL__DUMMY_CREATOR_H
 
 // includes
 #include "protocol.h"
@@ -28,4 +28,4 @@ ConfirmRegistrationResponse * create__ConfirmRegistrationResponse();
 
 } // namespace user_reg_protocol
 
-#endif // APG_USER_REG__DUMMY_CREATOR_H
+#endif // APG_USER_REG_PROTOCOL__DUMMY_CREATOR_H

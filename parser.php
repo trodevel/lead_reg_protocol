@@ -3,8 +3,9 @@
 namespace user_reg_protocol;
 
 
-// includes
+// base include
 require_once __DIR__.'/../generic_protocol/parser.php';
+// includes
 require_once __DIR__.'/../basic_objects/parser.php';
 require_once __DIR__.'/../basic_parser/parser.php';
 
@@ -112,10 +113,10 @@ protected static function parse_csv_array( $csv_arr )
 
     $handler_map = array(
         // messages
-        'user_reg/RegisterUserRequest'         => 'parse__RegisterUserRequest',
-        'user_reg/RegisterUserResponse'         => 'parse__RegisterUserResponse',
-        'user_reg/ConfirmRegistrationRequest'         => 'parse__ConfirmRegistrationRequest',
-        'user_reg/ConfirmRegistrationResponse'         => 'parse__ConfirmRegistrationResponse',
+        'user_reg_protocol/RegisterUserRequest'         => 'parse__RegisterUserRequest',
+        'user_reg_protocol/RegisterUserResponse'         => 'parse__RegisterUserResponse',
+        'user_reg_protocol/ConfirmRegistrationRequest'         => 'parse__ConfirmRegistrationRequest',
+        'user_reg_protocol/ConfirmRegistrationResponse'         => 'parse__ConfirmRegistrationResponse',
     );
 
     $type = $csv_arr[0][0];
@@ -131,7 +132,7 @@ protected static function parse_csv_array( $csv_arr )
 
 }
 
-# namespace_end user_reg_protocol
+// namespace_end user_reg_protocol
 
 
 ?>

@@ -1,5 +1,5 @@
-#ifndef APG_USER_REG__PROTOCOL_H
-#define APG_USER_REG__PROTOCOL_H
+#ifndef APG_USER_REG_PROTOCOL__PROTOCOL_H
+#define APG_USER_REG_PROTOCOL__PROTOCOL_H
 
 // system includes
 #include <vector>
@@ -42,7 +42,7 @@ struct RegisterUserRequest: public Request
 {
     enum
     {
-        message_id = 2862506222
+        message_id = 4109632231
     };
 
     User                 lead      ;
@@ -54,7 +54,7 @@ struct RegisterUserResponse: public BackwardMessage
 {
     enum
     {
-        message_id = 434652094
+        message_id = 1617596792
     };
 };
 
@@ -63,7 +63,7 @@ struct ConfirmRegistrationRequest: public Request
 {
     enum
     {
-        message_id = 3250536916
+        message_id = 3914054955
     };
 
     std::string          registration_key; // size constrain: [1, 256]
@@ -74,11 +74,11 @@ struct ConfirmRegistrationResponse: public BackwardMessage
 {
     enum
     {
-        message_id = 3750738733
+        message_id = 4070940764
     };
 };
 
 } // namespace user_reg_protocol
 
-#endif // APG_USER_REG__PROTOCOL_H
+#endif // APG_USER_REG_PROTOCOL__PROTOCOL_H
 

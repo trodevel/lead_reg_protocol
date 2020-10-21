@@ -1,5 +1,5 @@
-#ifndef APG_USER_REG__OBJECT_INITIALIZER_H
-#define APG_USER_REG__OBJECT_INITIALIZER_H
+#ifndef APG_USER_REG_PROTOCOL__OBJECT_INITIALIZER_H
+#define APG_USER_REG_PROTOCOL__OBJECT_INITIALIZER_H
 
 // includes
 #include "protocol.h"
@@ -56,4 +56,4 @@ ConfirmRegistrationResponse * create_ConfirmRegistrationResponse(
 
 } // namespace user_reg_protocol
 
-#endif // APG_USER_REG__OBJECT_INITIALIZER_H
+#endif // APG_USER_REG_PROTOCOL__OBJECT_INITIALIZER_H

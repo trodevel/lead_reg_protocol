@@ -47,7 +47,7 @@ class RegisterUserRequest extends Request
         parent::__construct();
     }
 
-    const MESSAGE_ID = 2862506222;
+    const MESSAGE_ID = 4109632231;
 
     public $lead                ; // type: User
     public $password            ; // type: string // size constrain: [6, 40]
@@ -61,7 +61,7 @@ class RegisterUserResponse extends BackwardMessage
         parent::__construct();
     }
 
-    const MESSAGE_ID = 434652094;
+    const MESSAGE_ID = 1617596792;
 };
 
 // Message
@@ -72,7 +72,7 @@ class ConfirmRegistrationRequest extends Request
         parent::__construct();
     }
 
-    const MESSAGE_ID = 3250536916;
+    const MESSAGE_ID = 3914054955;
 
     public $registration_key    ; // type: string // size constrain: [1, 256]
 };
@@ -85,10 +85,10 @@ class ConfirmRegistrationResponse extends BackwardMessage
         parent::__construct();
     }
 
-    const MESSAGE_ID = 3750738733;
+    const MESSAGE_ID = 4070940764;
 };
 
-# namespace_end user_reg_protocol
+// namespace_end user_reg_protocol
 
 
 ?>
